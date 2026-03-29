@@ -1,0 +1,347 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* =====================================================
+   ASCII OUTPUT FONTS (절대 유지)
+===================================================== */
+
+@font-face {
+  font-family: "Spleen";
+  src: url("https://db.onlinewebfonts.com/t/1bd935c93d307c65f7dfbbe7803282af.eot");
+  src:
+    url("https://db.onlinewebfonts.com/t/1bd935c93d307c65f7dfbbe7803282af.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/1bd935c93d307c65f7dfbbe7803282af.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/1bd935c93d307c65f7dfbbe7803282af.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/1bd935c93d307c65f7dfbbe7803282af.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/1bd935c93d307c65f7dfbbe7803282af.svg#Spleen")
+      format("svg");
+  font-weight: normal;
+  font-display: swap;
+  white-space: pre;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+
+@font-face {
+  font-family: "RoundedFixedsys";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+  white-space: pre;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+
+/* =====================================================
+   UI PIXEL / DOS STYLE FONTS (유지)
+===================================================== */
+
+
+@font-face {
+  font-family: "ThreeKingdoms3Font";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* =====================================================
+   UI FONT — GALMURI (PIXEL GOTHIC)
+===================================================== */
+
+@font-face {
+  font-family: "Galmuri11";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/Galmuri11.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'PfStardust30S';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/PFStardustS.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PfStardust30S';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/PFStardustSBold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PfStardust30S';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2506-1@1.0/PFStardustSExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* =====================================================
+   GLOBAL — IBM PC CGA / MONO
+===================================================== */
+
+:root {
+  --cga-bg: #000000;
+  --cga-fg: #e6e6e6;
+  --cga-dim: #9a9a9a;
+  --cga-border: #ffffff;
+
+  font-family: "Galmuri11", "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cga-bg);
+  color: var(--cga-fg);
+}
+
+/* =====================================================
+   ASCII OUTPUT (핵심)
+===================================================== */
+
+.asciiBox {
+  white-space: pre;
+  font-family: "Spleen", "RoundedFixedsys", "IBM Plex Mono", monospace;
+  font-size: 12px;
+  line-height: 1.05;
+  color: var(--cga-fg);
+  background: var(--cga-bg);
+
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+
+/* =====================================================
+   ASCII SCROLLBAR (DOS 느낌)
+===================================================== */
+
+.asciiBox::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.asciiBox::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.asciiBox::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 2px solid #000;
+}
+
+.asciiBox::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* =====================================================
+   CONTROLS PANEL (그래픽 UI 제거, ASCII 감각만 유지)
+===================================================== */
+
+
+.controls-panel {
+  background: #000;
+  color: #e6e6e6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo",
+  Arial, sans-serif !important;
+letter-spacing: 0;
+}
+
+.controls-panel pre {
+  user-select: none;
+}
+
+.controls-panel button,
+.controls-panel select,
+.controls-panel input {
+  background: #000;
+  color: var(--cga-fg);
+  border: 1px solid var(--cga-border);
+  font-family: inherit;
+}
+
+.controls-panel button:hover {
+  background: #111;
+}
+
+/* =====================================================
+   DOS SLIDER (유지 + 색상 단색화)
+===================================================== */
+
+.dos-slider {
+  appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+.dos-slider::-webkit-slider-runnable-track {
+  height: 14px;
+  background: #000;
+  border: 1px solid #fff;
+}
+
+.dos-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 16px;
+  background: #e6e6e6;
+  border: 2px solid #000;
+  margin-top: -2px;
+  cursor: pointer;
+}
+
+.dos-slider:hover::-webkit-slider-thumb {
+  background: #ffffff;
+}
+
+.dos-slider::-moz-range-track {
+  height: 14px;
+  background: #000;
+  border: 1px solid #fff;
+}
+
+.dos-slider::-moz-range-thumb {
+  width: 14px;
+  height: 16px;
+  background: #e6e6e6;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+/* =====================================================
+   RESPONSIVE (ASCII 유지)
+===================================================== */
+
+@media (max-width: 980px) {
+  .asciiBox {
+    height: 70vh !important;
+  }
+}
+
+
+/* ASCII 관련 요소만 */
+.asciiBox,
+.controls-panel pre,
+.controls-panel select {
+  font-family: "Galmuri11", monospace;
+}
+
+
+.controls-panel,
+.controls-panel * {
+  font-family: "Galmuri11", monospace !important;
+  letter-spacing: 0;
+}
+
+/* ===============================
+   TEXT UI INTERACTION
+================================ */
+
+.ui-toggle {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  margin: 2px 0;
+}
+
+.ui-toggle:hover {
+  text-decoration: underline;
+}
+
+.ui-on {
+  color: #00ff9c;
+}
+
+.ui-clickable {
+  cursor: pointer;
+}
+
+.ui-clickable:hover {
+  text-decoration: underline;
+}
+
+.ui-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ui-cmd {
+  cursor: pointer;
+}
+
+.ui-cmd:hover {
+  text-decoration: underline;
+}
+
+.ui-danger {
+  color: #ff6666;
+}
+
+/* ===============================
+   GLOBAL UI ACCENT
+================================ */
+
+.ui {
+  font-family: Galmuri11, monospace;
+}
+
+/* 클릭 가능한 텍스트 */
+.ui-clickable,
+.ui-cmd,
+.ui-toggle {
+  cursor: pointer;
+  color: #cfead6;
+}
+
+/* 초록 강조 */
+.ui-clickable:hover,
+.ui-cmd:hover,
+.ui-toggle:hover {
+  color: #7CFF9B;
+  text-decoration: underline;
+}
+
+/* ON 상태 강조 */
+.ui-on {
+  color: #7CFF9B;
+}
+
+/* 액션 영역 */
+.ui-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #333;
+}
+
+/* 위험 액션 */
+.ui-danger {
+  color: #ff6b6b;
+}
+.ui-danger:hover {
+  color: #ff9a9a;
+  text-decoration: underline;
+}
+
+.asciiBox span {
+  background: transparent !important;
+}
+
+
+
