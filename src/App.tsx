@@ -235,7 +235,7 @@ export default function ASCIIArtConverter() {
   const [gifAsciiFrames, setGifAsciiFrames] = useState<string[]>([]);
   const [gifColorFrames, setGifColorFrames] = useState<string[]>([]);
   const [showGifPreview, setShowGifPreview] = useState(false);
-  const [currentFrame, setCurrentFrame] = useState(0);
+  const [_currentFrame, setCurrentFrame] = useState(0);
 
   const [asciiArt, setAsciiArt] = useState('');
   const [coloredHtml, setColoredHtml] = useState('');
