@@ -255,7 +255,7 @@ export function convertToASCII(params: any) {
    ASCII (color)
 =============================================================== */
 export function convertToColorHTML(params: any) {
-  const { sourceImg, canvas, grid, charSet, apply, preset, palette } = params;
+    const { sourceImg, canvas, grid, charSet, apply, preset } = params;
 
   const s = {
     densityCurve: 'linear',
