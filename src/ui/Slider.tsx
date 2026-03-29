@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';  // 각 파일에 쓰는 것만
+import { useRef, useLayoutEffect, useMemo } from 'react';
 
 type Props = {
   label: string;
