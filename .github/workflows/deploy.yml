@@ -2,23 +2,27 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: ["main"] # main 브랜치에 푸시될 때 실행
+  workflow_dispatch:   # 수동 실행 버튼 활성화
 
+# 배포를 위한 권한 설정
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 jobs:
-  deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
@@ -26,10 +30,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to gh-pages
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add dist -f
-          git commit -m "deploy"
-          git push origin `git subtree split --prefix dist HEAD`:gh-pages --force
+      # 빌드된 dist 폴더를 업로드 (Vite 기준)
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      # 실제로 웹에 배포
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
